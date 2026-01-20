@@ -411,10 +411,12 @@ footer {
 
 .cc-link {
   color:
-    #ECFEE8;
+    #FEFF01;
   text-decoration: none;
+  font-size: 16px;
 }
 
 .cc-link:hover {
-  color: #eec6ff;
+  color: #BEFFEE;
+  font-size: 16px;
 }
