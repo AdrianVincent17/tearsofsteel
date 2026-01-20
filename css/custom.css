@@ -420,3 +420,10 @@ footer {
   color: #BEFFEE;
   font-size: 16px;
 }
+
+.fondo-peli{
+  background-color: #000000b9;
+  padding: 8px;
+  border-radius: 8px;
+  width: 60%;
+}
