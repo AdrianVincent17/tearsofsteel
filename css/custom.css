@@ -1,0 +1,409 @@
+/* Fondo global y color de texto */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  flex-grow: 1;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-image: url('../img/fondo3.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+
+.navbar {
+  background: rgba(20, 20, 20, 0.438);
+
+}
+/* Links de navegación */
+.navbar .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  position: relative;
+  transition: color 0.18s ease;
+}
+
+.nav-link:hover{
+    color: rgb(144, 255, 207);
+}
+
+/* Underline animado (efecto neon) */
+.navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  transform: translateX(-50%) scaleX(0);
+  width: 75%;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #00f0ff, #ff2dca);
+  /* Neon Cyan a Neon rosa */
+  transition: transform .24s cubic-bezier(.2, .9, .2, 1);
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* --- PERSONAJES: Overlay y Efecto Hover --- */
+
+/* Contenedor de la tarjeta del personaje */
+.personajes-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  border: none;
+}
+
+.personajes-card .card-body {
+  background: linear-gradient(180deg, rgba(77, 77, 77, 0.9), rgba(158, 158, 158, 0.94));
+  color: #fff;
+
+}
+
+
+/* Overlay que aparece desde abajo al hacer hover */
+.personajes-card .card-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: linear-gradient(180deg, rgba(143, 24, 92, 0.9), rgba(184, 144, 172, 0.94));
+  color: #fff;
+  transform: translateY(100%);
+  transition: transform .36s cubic-bezier(.2, .9, .2, 1), opacity .28s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  opacity: 0;
+
+}
+
+/* Muestra el overlay al hacer hover */
+.personajes-card:hover .card-overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* --- SINÓPSIS--- */
+
+.sinopsis-card {
+
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 0px 20px 8px rgba(170, 170, 170, 0.5);
+  padding: 2rem 2.5rem;
+  text-align: center;
+  color: #fff;
+}
+
+.sinopsis-card p {
+  font-style: italic;
+  font-size: 26px;
+  color: #f5f9ff;
+}
+
+.lead {
+  color: #f5f9ff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+}
+
+.galeria-img {
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+
+.galeria-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 8px 10px rgba(255, 255, 255, 0.726);
+}
+
+.modal-body img{
+  width: 100%;
+  height: auto;
+  color: #f5f9ff;
+  box-shadow: 0px 0px 20px 8px rgba(170, 170, 170, 0.5);
+  border-radius: 25px;
+}
+
+/* --- ESTILOS PARA LA SINÓPSIS CLICKABLE --- */
+
+/* Hacemos la tarjeta una fuente de contexto para el overlay y le damos cursor */
+.clickable-sinopsis {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Overlay que aparece en el hover */
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Fondo oscuro semitransparente para que el botón resalte */
+  background: rgba(0, 0, 0, 0.7);
+
+  /* Inicialmente oculto */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Efecto de hover: el overlay se vuelve visible */
+.clickable-sinopsis:hover .play-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Estilo del botón de reproducción Neon */
+.btn-play-neon {
+  background: linear-gradient(90deg, #ff2dca, #00f0ff);
+  /* Degradado rosa a Cyan */
+  border: none;
+  color: #000;
+  font-weight: 700;
+  padding: 1rem 3rem;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+  transform: scale(0.9);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-play-neon:hover {
+  transform: scale(1.0);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.8);
+}
+
+.scroll-1 {
+  width: 100%;
+  overflow: hidden;
+}
+
+.scroll1-text {
+  display: inline-block;
+  padding-left: 100%;
+  white-space: nowrap;
+  animation: scroll 0.5s linear infinite;
+  color: #00f0ff;
+  font-weight: bold;
+  font-size: 48px;
+
+}
+
+.scroll1-text2 {
+  display: inline-block;
+  padding-left: 100%;
+  white-space: nowrap;
+  animation: scroll 0.5s linear infinite;
+  color: #ff2dca;
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.scroll1-text3 {
+  display: inline-block;
+  padding-left: 100%;
+  white-space: nowrap;
+  animation: scroll 1s linear infinite;
+  color: #00f0ff;
+  font-weight: bold;
+}
+
+.scroll1-text4 {
+  display: inline-block;
+  padding-left: 100%;
+  white-space: nowrap;
+  animation: scroll 1s linear infinite;
+  color: #ff2dca;
+  font-weight: bold;
+  font-size: 48px;
+
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+/* Estilos generales del botón */
+#botonReproducir {
+  padding: 10px 15px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border: none;
+  color: white;
+  /* Color del texto */
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  /* Transición suave para el estado Pausado */
+
+  /* Estado inicial (Pausado o Detenido) */
+  background-color: #b9000900;
+}
+
+/* ------------------------------------------- */
+/* CSS para la ANIMACIÓN DE COLORES */
+/* ------------------------------------------- */
+
+/* Definición de la animación de cambio de color */
+@keyframes cambioColor {
+  0% {
+    /* Naranja */
+    border: 2px solid #f7941d;
+  }
+
+  /* Azul claro */
+  25% {
+    border: 2px solid #6d86ff;
+  }
+
+  /* Verde */
+  50% {
+    border: 2px solid #33d17a;
+  }
+
+  /* Rosa */
+  75% {
+    border: 2px solid #ff6d86;
+  }
+
+  /* Vuelve al Naranja */
+  100% {
+    border: 2px solid #f7941d;
+  }
+
+  
+}
+
+/* Clase que se APLICA al botón cuando el audio está REPRODUCIÉNDOSE */
+.reproduciendo {
+
+  /* Aplica la animación */
+  animation-name: cambioColor;
+  /* Duración de la animación (ajústala a tu gusto) */
+  animation-duration: 1s;
+  /* Repetir la animación */
+  animation-iteration-count: infinite;
+  /* Movimiento suave y continuo */
+  animation-timing-function: linear;
+}
+
+/* Estilo al pasar el ratón */
+#botonReproducir:hover {
+  border: 1px solid #fff  ;
+}
+
+/* 
+###################################################### */
+
+.contenedor-cards-css {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Más espacio entre las cards */
+    padding: 20px;
+    flex-wrap: wrap; 
+}
+
+.card-pelicula-css {
+    width: 500px; 
+    height: 750px;
+    border-radius: 10px;
+    overflow: hidden; 
+    box-shadow: 0 6px 12px rgba(252, 252, 252, 0.2);
+    position: relative; /* FUNDAMENTAL para que el overlay se posicione correctamente */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+/* Efecto al pasar el ratón por la tarjeta */
+.card-pelicula-css:hover {
+    transform: scale(1.05); 
+    
+}
+
+/* Imagen del Póster */
+.card-pelicula-css img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+.card-overlay-css {
+    position: absolute;
+    bottom: 0; /* Lo colocamos en la parte inferior */
+    left: 0;
+    width: 100%;
+     /* Solo cubre el 40% de la parte inferior inicialmente */
+    background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0)); /* Degradado más profesional */
+    color: white;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Alinea el contenido hacia abajo */
+    text-align: center;
+    
+    /* Animación: Oculto por defecto. Transicionamos la altura. */
+    height: 0%; 
+    transition: height 0.7s ease; /* Transición suave de la altura */
+}
+
+/* MOSTRAR INFORMACIÓN: Aumentamos la altura del overlay al 100% cuando se hace hover */
+.card-pelicula-css:hover .card-overlay-css {
+    height: 100%; 
+    background: rgba(0, 0, 0, 0.55); /* Fondo oscuro completo cuando está expandido */
+}
+
+.card-overlay-css p {
+    font-size: 25px;
+    /* Ocultamos la sinopsis si el overlay no está completamente expandido */
+    opacity: 0;
+    transition: opacity 0.1s 0.1s; /* Pequeño retraso para que aparezca después del hover */
+}
+
+.card-pelicula-css:hover .card-overlay-css p {
+    opacity: 1; /* Hacemos la sinopsis visible al hacer hover */
+}
+
+footer{
+  background-color: #141414c4;
+}
+
+.cc-link {
+  color: #04ff9b;
+  text-decoration: none;
+}
+.cc-link:hover {
+  color: #b300ff;
+}
+
