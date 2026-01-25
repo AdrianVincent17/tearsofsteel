@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     // 1. Identificar el Modal y el Video
     const videoModalElement = document.getElementById('videoModal');
@@ -24,5 +24,18 @@ document.addEventListener('DOMContentLoaded', function() {
             // Usamos .play()
             videoPlayer.play()
         });
+
+        // El disparador del tráiler responda a la tecla Enter 
+        var botonTrailer = document.querySelector('.clickable-sinopsis') || document.querySelector('.sinopsis-card'); // selecciona el botón del tráiler
+        if (botonTrailer) { //si el botón existe,
+            // asignar tabIndex directamente
+            botonTrailer.tabIndex = 0; // hace el elemento enfocables con Tab
+            botonTrailer.addEventListener('keydown', function(Evento) { // escucha keydown
+                if (Evento.key === 'Enter') {  // solo Enter
+                    Evento.preventDefault(); // previene el comportamiento por defecto
+                    this.click(); // simula click para abrir modal
+                }
+            });
+        }
     }
 });

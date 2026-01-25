@@ -93,8 +93,14 @@ body {
 
 }
 
-/* Muestra el overlay al hacer hover */
+/* Muestra el overlay al hacer hover */     
 .personajes-card:hover .card-overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Mostrar el overlay cuando la tarjeta o cualquiera de sus hijos recibe foco (teclado) */
+.personajes-card:focus-within .card-overlay{
   transform: translateY(0);
   opacity: 1;
 }
@@ -173,6 +179,12 @@ body {
 
 /* Efecto de hover: el overlay se vuelve visible */
 .clickable-sinopsis:hover .play-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mostrar el overlay cuando el elemento recibe foco (teclado) */
+.clickable-sinopsis:focus .play-overlay {
   opacity: 1;
   visibility: visible;
 }
@@ -397,6 +409,15 @@ body {
 
 footer{
   background-color: #141414c4;
+}
+
+/* Mostrar overlay en tarjetas de recomendaciones cuando reciben foco (teclado) */
+.card-pelicula-css:focus .card-overlay-css,
+.card-overlay-css p{ /**para que el texto tambien aparezca*/
+    height: 100%;           
+    opacity: 1  ;          
+    visibility: visible;    
+    background: rgba(0, 0, 0, 0.55);
 }
 
 .cc-link {
