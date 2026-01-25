@@ -34,7 +34,7 @@ body {
 }
 
 .nav-link:hover{
-    color: #ffff00;
+    color: #00ffa6;
 }
 
 /* Underline animado (efecto neon) */
@@ -421,15 +421,15 @@ footer{
 }
 
 .cc-link {
-  color: #ffff00;
+  color: #ffffff;
   text-decoration: none;
 }
 .cc-link:hover {
-  color: #ffffff;
+  color: #00ffa6;
 }
 
 .fondolink {
-  background-color: #000000b9;
+  background-color: #000000;
   padding: 8px;
   border-radius: 8px;
   width: 60%;
